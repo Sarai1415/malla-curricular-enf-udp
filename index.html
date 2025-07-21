@@ -8,13 +8,91 @@
 </head>
 <body>
   <header>
-    <div style="text-align:center; margin: 1rem;">
-  <button onclick="window.print()" style="padding: 0.5rem 1rem; font-size: 1rem; background: #004080; color: white; border: none; border-radius: 5px; cursor: pointer;">
-    Imprimir / Guardar como PDF
-  </button>
-</div>
+    <h1>Malla Curricular - Enfermería (Visual por Año)</h1>
+    <p>10 semestres en formato grilla</p>
+<header>
     <h1>Malla Curricular - Enfermería</h1>
-    <p>Visualización interactiva con créditos y prerrequisitos</p>
+    <p>Visualización interactiva con créditos y prerrequisitos</p
+     <div class="grid">
+    <!-- Semestre 1 -->
+    <div class="semestre year-1">
+      <h2>Semestre 1</h2>
+      <div class="ramo">Química <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Biología <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Bases Teoricas de Enfermería I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Primeros Auxilios <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Psicología Evolutiva <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Inglés I <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <!-- Semestre 2 -->
+    <div class="semestre year-1">
+      <h2>Semestre 2</h2>
+      <div class="ramo">Bioquímica <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Morfofuncion I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Bases Teoricas de Enfermería II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Comunicación y educación en salud <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Inglés II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">CFG <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <!-- Semestre 3 al 10 -->
+    <div class="semestre year-2">
+      <h2>Semestre 3</h2>
+      <div class="ramo">Microbiología Integrada <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Morfofuncion II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Cuidados de Enfermería I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Competencias Genéricas <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Inglés III <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-2">
+      <h2>Semestre 4</h2>
+      <div class="ramo">Farmacología <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Fisiopatología <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Cuidados de Enfermería II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Enfermería en Salud Mental <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Bioestadística <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-3">
+      <h2>Semestre 5</h2>
+      <div class="ramo">Gestión Adulto Hospitalario <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Enfermería en Psiquiatría <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Bioética y Logística <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Salud Pública <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">CFG <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-3">
+      <h2>Semestre 6</h2>
+      <div class="ramo">Gestión Comunidad I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Adulto Mayor y Psicogeriatría <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Enfermería basada en Evidencia <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Gestión y Liderazgo <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">CFG <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-4">
+      <h2>Semestre 7</h2>
+      <div class="ramo">Gestión Comunidad II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Calidad y Proyectos <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Metodología de la Investigación I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Optativo I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">CFG <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-4">
+      <h2>Semestre 8</h2>
+      <div class="ramo">Gestión Infanto-Juvenil <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Unidades Críticas y Urgencia <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Metodología de la Investigación II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Medicina Integrativa <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Optativo II <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-5">
+      <h2>Semestre 9</h2>
+      <div class="ramo">Internado Comunitario <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Internado Clínico/Urgencia <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-5">
+      <h2>Semestre 10</h2>
+      <div class="ramo">Internado Intrahospitalario <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+  </div>
   </header>
   <main id="contenedor"></main> 
   <div style="text-align:center; margin: 1rem;">
