@@ -3,46 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malla Curricular de Enfermería</title>
- <link rel="stylesheet" href="style.css">
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f7; }
-    header { background: #004080; color: white; padding: 1rem; text-align: center; }
-    main { padding: 1rem; max-width: 900px; margin: auto; }
-    section.semestre { background: white; margin: 1rem 0; border-left: 5px solid #004080; border-radius: 5px; padding: 1rem; box-shadow: 0 0 5px rgba(0,0,0,0.1); transition: background 0.3s ease; }
-    .semestre h2 { margin-top: 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .semestre h2::after { content: '▼'; font-size: 0.9rem; transition: transform 0.2s; }
-    .semestre.collapsed h2::after { transform: rotate(-90deg); }
-    ul.ramos { list-style: none; padding-left: 0; display: none; }
-    .semestre.expanded ul.ramos { display: block; }
-    ul.ramos li { margin: 0.5rem 0; padding: 0.5rem; border-left: 4px solid #008000; background: #eafbe7; border-radius: 4px; }
-    li.inhabilitado { border-left-color: #aaa; background: #f0f0f0; color: #888; }
-    small { display: block; font-size: 0.85rem; color: #444; }
-    .creditos { font-weight: bold; }
-    .acumulados { font-style: italic; font-size: 0.9rem; margin-bottom: 0.5rem; }
-
-    /* Colores por año */
-    .year-1 { border-left-color: #2980b9; }
-    .year-2 { border-left-color: #27ae60; }
-    .year-3 { border-left-color: #f39c12; }
-    .year-4 { border-left-color: #8e44ad; }
-    .year-5 { border-left-color: #c0392b; }
-
-    @media (max-width: 600px) {
-      .semestre { padding: 0.75rem; }
-      header h1 { font-size: 1.2rem; }
-    }
-  </style>
+  <title>Malla Visual - Enfermería</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Malla Curricular - Enfermería</h1>
-    <p>Visualización interactiva con créditos y prerrequisitos</p>
+    <h1>Malla Curricular - Enfermería (Visual por Año)</h1>
+    <p>10 semestres en formato grilla</p>
   </header>
-  <main id="contenedor"></main>
-  <footer style="text-align:center;font-size:0.8rem;padding:1rem;color:#555;">
-    Desarrollado por Saraí Véliz · Código abierto en GitHub
-  </footer>
-<script src="script.js"></script>
+  <div class="grid">
+    <!-- Semestre 1 -->
+    <div class="semestre year-1">
+      <h2>Semestre 1</h2>
+      <div class="ramo">Química <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Biología <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Bases Teoricas de Enfermería I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Primeros Auxilios <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Psicología Evolutiva <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Inglés I <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <!-- Semestre 2 -->
+    <div class="semestre year-1">
+      <h2>Semestre 2</h2>
+      <div class="ramo">Bioquímica <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Morfofuncion I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Bases Teoricas de Enfermería II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Comunicación y educación en salud <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Inglés II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">CFG <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <!-- Semestre 3 al 10 -->
+    <div class="semestre year-2">
+      <h2>Semestre 3</h2>
+      <div class="ramo">Microbiología Integrada <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Morfofuncion II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Cuidados de Enfermería I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Competencias Genéricas <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Inglés III <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-2">
+      <h2>Semestre 4</h2>
+      <div class="ramo">Farmacología <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Fisiopatología <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Cuidados de Enfermería II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Enfermería en Salud Mental <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Bioestadística <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-3">
+      <h2>Semestre 5</h2>
+      <div class="ramo">Gestión Adulto Hospitalario <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Enfermería en Psiquiatría <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Bioética y Logística <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Salud Pública <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">CFG <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-3">
+      <h2>Semestre 6</h2>
+      <div class="ramo">Gestión Comunidad I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Adulto Mayor y Psicogeriatría <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Enfermería basada en Evidencia <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Gestión y Liderazgo <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">CFG <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-4">
+      <h2>Semestre 7</h2>
+      <div class="ramo">Gestión Comunidad II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Calidad y Proyectos <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Metodología de la Investigación I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Optativo I <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">CFG <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-4">
+      <h2>Semestre 8</h2>
+      <div class="ramo">Gestión Infanto-Juvenil <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Unidades Críticas y Urgencia <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Metodología de la Investigación II <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Medicina Integrativa <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Optativo II <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-5">
+      <h2>Semestre 9</h2>
+      <div class="ramo">Internado Comunitario <button onclick="aprobar(this)">Aprobar</button></div>
+      <div class="ramo">Internado Clínico/Urgencia <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+    <div class="semestre year-5">
+      <h2>Semestre 10</h2>
+      <div class="ramo">Internado Intrahospitalario <button onclick="aprobar(this)">Aprobar</button></div>
+    </div>
+  </div>
+
+  <script>
+    function aprobar(btn) {
+      const ramo = btn.parentElement;
+      ramo.classList.toggle('aprobado');
+      const nombre = ramo.textContent.trim();
+      let aprobados = JSON.parse(localStorage.getItem("aprobados") || "[]");
+      if (ramo.classList.contains("aprobado")) {
+        aprobados.push(nombre);
+      } else {
+        aprobados = aprobados.filter(n => n !== nombre);
+      }
+      localStorage.setItem("aprobados", JSON.stringify([...new Set(aprobados)]));
+    }
+
+    // Al cargar, marcar ramos ya aprobados
+    window.onload = () => {
+      const aprobados = JSON.parse(localStorage.getItem("aprobados") || "[]");
+      document.querySelectorAll(".ramo").forEach(div => {
+        if (aprobados.includes(div.textContent.trim())) {
+          div.classList.add("aprobado");
+        }
+      });
+    }
+  </script>
 </body>
 </html>
+
