@@ -108,3 +108,84 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.appendChild(box);
   }
 });
+// ----------- LÓGICA DE INTERACTIVIDAD Y GUARDADO -----------
+
+let creditosAcumulados = 0;
+const aprobados = new Set(JSON.parse(localStorage.getItem("ramosAprobados") || "[]"));
+const contenedor = document.getElementById("contenedor");
+
+malla.forEach((s) => {
+  const sec = document.createElement("section");
+  sec.className = `semestre year-${s.year}`;
+  const h2 = document.createElement("h2");
+  h2.textContent = `Semestre ${s.semestre}`;
+  h2.onclick = () => {
+    sec.classList.toggle("expanded");
+    sec.classList.toggle("collapsed");
+  };
+
+  const ul = document.createElement("ul");
+  ul.className = "ramos";
+  let creditosSemestre = 0;
+
+  s.ramos.forEach((ramo) => {
+    const li = document.createElement("li");
+    const requisitos = ramo.requiere || [];
+    const cumpleReq = requisitos.every((req) => aprobados.has(req));
+    const cumpleCred = ramo.requiereCreditos ? creditosAcumulados >= ramo.requiereCreditos : true;
+    const habilitado = cumpleReq && cumpleCred;
+    const aprobado = aprobados.has(ramo.nombre);
+
+    li.className = habilitado ? "" : "inhabilitado";
+    if (aprobado) li.classList.add("aprobado");
+
+    li.innerHTML = `
+      <div>
+        <strong>${ramo.nombre}</strong> <span class="creditos">(${ramo.creditos} créditos)</span>
+        ${
+          requisitos.length || ramo.requiereCreditos
+            ? `<br><small>Prerrequisitos: ${requisitos.join(", ")}${
+                ramo.requiereCreditos ? ", " + ramo.requiereCreditos + " créditos aprobados" : ""
+              }</small>`
+            : ""
+        }
+      </div>
+    `;
+
+    if (habilitado) {
+      const btn = document.createElement("button");
+      btn.textContent = aprobado ? "✓ Aprobado" : "Marcar como aprobado";
+      btn.onclick = () => {
+        if (!aprobados.has(ramo.nombre)) {
+          aprobados.add(ramo.nombre);
+          localStorage.setItem("ramosAprobados", JSON.stringify([...aprobados]));
+          location.reload();
+        }
+      };
+      li.appendChild(btn);
+    }
+
+    if (habilitado && aprobado) {
+      creditosSemestre += ramo.creditos;
+    }
+
+    ul.appendChild(li);
+  });
+
+  creditosAcumulados += creditosSemestre;
+
+  const pCreditos = document.createElement("p");
+  pCreditos.className = "acumulados";
+  pCreditos.textContent = `Créditos acumulados hasta este semestre: ${creditosAcumulados}`;
+
+  sec.appendChild(h2);
+  sec.appendChild(pCreditos);
+  sec.appendChild(ul);
+  contenedor.appendChild(sec);
+});
+function resetearProgreso() {
+  if (confirm("¿Estás seguro/a de que quieres borrar todos los ramos marcados como aprobados?")) {
+    localStorage.removeItem("ramosAprobados");
+    location.reload();
+  }
+}
