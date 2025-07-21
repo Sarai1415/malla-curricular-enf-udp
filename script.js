@@ -241,6 +241,16 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.appendChild(box);
   }
 });
+const aprobados = new Set(JSON.parse(localStorage.getItem("aprobados") || "[]"));
+function totalCreditos() {
+  return ramos.reduce((acc, r) => (aprobados.has(r.nombre) ? acc + r.creditos : acc), 0);
+}
+function cumpleRequisitos(r) {
+  const byRamos = (r.requiere || []).every((req) => aprobados.has(req));
+  const byCreds = r.requiereCreditos ? totalCreditos() >= r.requiereCreditos : true;
+  return byRamos && byCreds;
+}
+
 // ----------- LÓGICA DE INTERACTIVIDAD Y GUARDADO -----------
 
 let creditosAcumulados = 0;
