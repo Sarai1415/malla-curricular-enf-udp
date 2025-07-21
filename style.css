@@ -1,0 +1,59 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+header {
+  background: #004080;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1400px;
+  margin: auto;
+}
+.semestre {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.semestre h2 {
+  margin-top: 0;
+}
+.ramo {
+  background: #dfefff;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.year-1 .ramo { background: #aed6f1; }
+.year-2 .ramo { background: #a9dfbf; }
+.year-3 .ramo { background: #f9e79f; }
+.year-4 .ramo { background: #d7bde2; }
+.year-5 .ramo { background: #f5b7b1; }
+
+.ramo.aprobado {
+  background: #d1ecf1 !important;
+  color: #0c5460;
+  font-weight: bold;
+}
+.ramo button {
+  float: right;
+  font-size: 0.8rem;
+  background: #004080;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}
+.ramo button:hover {
+  background: #0066cc;
+}
