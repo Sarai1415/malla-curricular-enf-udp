@@ -1,71 +1,204 @@
-// --- Datos de todos los ramos, créditos y requisitos ----------
-const ramos = [
-  { semestre: 1, year: 1, nombre: "Química", creditos: 5 },
-  { semestre: 1, year: 1, nombre: "Biología", creditos: 5 },
-  { semestre: 1, year: 1, nombre: "Bases Teoricas de Enfermería I", creditos: 5 },
-  { semestre: 1, year: 1, nombre: "Primeros Auxilios", creditos: 3 },
-  { semestre: 1, year: 1, nombre: "Psicología Evolutiva", creditos: 5 },
-  { semestre: 1, year: 1, nombre: "Inglés I", creditos: 5 },
-
-  { semestre: 2, year: 1, nombre: "Bioquímica", creditos: 5, requiere: ["Química"] },
-  { semestre: 2, year: 1, nombre: "Morfofuncion I", creditos: 8, requiere: ["Biología"] },
-  { semestre: 2, year: 1, nombre: "Bases Teoricas de Enfermería II", creditos: 5, requiere: ["Bases Teoricas de Enfermería I"] },
-  { semestre: 2, year: 1, nombre: "Comunicación y educación en salud", creditos: 3, requiere: ["Bases Teoricas de Enfermería I"] },
-  { semestre: 2, year: 1, nombre: "Inglés II", creditos: 5, requiere: ["Inglés I"] },
-  { semestre: 2, year: 1, nombre: "CFG 1", creditos: 5 },
-
-  { semestre: 3, year: 2, nombre: "Microbiología Integrada", creditos: 6, requiere: ["Bioquímica"] },
-  { semestre: 3, year: 2, nombre: "Morfofuncion II", creditos: 8, requiere: ["Morfofuncion I"] },
-  { semestre: 3, year: 2, nombre: "Cuidados de Enfermería I", creditos: 9, requiere: ["Morfofuncion I","Bases Teoricas de Enfermería II","Comunicación y educación en salud"] },
-  { semestre: 3, year: 2, nombre: "Competencias Genéricas", creditos: 3, requiereCreditos: 55 },
-  { semestre: 3, year: 2, nombre: "Inglés III", creditos: 5, requiere: ["Inglés II"] },
-
-  { semestre: 4, year: 2, nombre: "Farmacología", creditos: 6, requiere: ["Microbiología Integrada"] },
-  { semestre: 4, year: 2, nombre: "Fisiopatología", creditos: 6, requiere: ["Morfofuncion II"] },
-  { semestre: 4, year: 2, nombre: "Cuidados de Enfermería II", creditos: 11, requiere: ["Morfofuncion II","Cuidados de Enfermería I"] },
-  { semestre: 4, year: 2, nombre: "Enfermería en Salud Mental", creditos: 5, requiereCreditos: 70 },
-  { semestre: 4, year: 2, nombre: "Bioestadística", creditos: 3, requiereCreditos: 70 },
-
-  { semestre: 5, year: 3, nombre: "Gestión Adulto Hospitalario", creditos: 12, requiere: ["Farmacología","Fisiopatología","Cuidados de Enfermería II"] },
-  { semestre: 5, year: 3, nombre: "Enfermería en Psiquiatría", creditos: 6, requiere: ["Farmacología","Fisiopatología","Cuidados de Enfermería II"] },
-  { semestre: 5, year: 3, nombre: "Bioética y Logística", creditos: 5, requiere: ["Cuidados de Enfermería II"] },
-  { semestre: 5, year: 3, nombre: "Salud Pública", creditos: 3, requiere: ["Cuidados de Enfermería II","Bioestadística"] },
-  { semestre: 5, year: 3, nombre: "CFG 2", creditos: 5 },
-
-  { semestre: 6, year: 3, nombre: "Gestión Comunidad I", creditos: 12, requiere: ["Gestión Adulto Hospitalario","Salud Pública"] },
-  { semestre: 6, year: 3, nombre: "Adulto Mayor y Psicogeriatría", creditos: 6, requiere: ["Gestión Adulto Hospitalario","Enfermería en Psiquiatría"] },
-  { semestre: 6, year: 3, nombre: "Enfermería basada en Evidencia", creditos: 3, requiere: ["Bioética y Logística","Salud Pública"] },
-  { semestre: 6, year: 3, nombre: "Gestión y Liderazgo", creditos: 4, requiere: ["Gestión Adulto Hospitalario"] },
-  { semestre: 6, year: 3, nombre: "CFG 3", creditos: 5 },
-
-  { semestre: 7, year: 4, nombre: "Gestión Comunidad II", creditos: 12, requiere: ["Gestión Comunidad I"] },
-  { semestre: 7, year: 4, nombre: "Calidad y Proyectos", creditos: 6, requiere: ["Gestión y Liderazgo"] },
-  { semestre: 7, year: 4, nombre: "Metodología de la Investigación I", creditos: 5, requiere: ["Enfermería basada en Evidencia"] },
-  { semestre: 7, year: 4, nombre: "Optativo I", creditos: 3, requiereCreditos: 150 },
-  { semestre: 7, year: 4, nombre: "CFG 4", creditos: 5 },
-
-  { semestre: 8, year: 4, nombre: "Gestión Infanto‑Juvenil", creditos: 12, requiere: ["Gestión Comunidad II"] },
-  { semestre: 8, year: 4, nombre: "Unidades Críticas y Urgencia", creditos: 6, requiere: ["Gestión Comunidad II"] },
-  { semestre: 8, year: 4, nombre: "Metodología de la Investigación II", creditos: 6, requiere: ["Metodología de la Investigación I"] },
-  { semestre: 8, year: 4, nombre: "Medicina Integrativa", creditos: 3, requiereCreditos: 150 },
-  { semestre: 8, year: 4, nombre: "Optativo II", creditos: 3, requiereCreditos: 150 },
-
-  { semestre: 9, year: 5, nombre: "Internado Comunitario", creditos: 25, requiereCreditos: 243 },
-  { semestre: 9, year: 5, nombre: "Internado Clínico/Urgencia", creditos: 10, requiereCreditos: 243 },
-
-  { semestre: 10, year: 5, nombre: "Internado Intrahospitalario", creditos: 25, requiereCreditos: 243 }
+const malla = [
+  {
+    semestre: 1,
+    year: 1,
+    ramos: [
+      { nombre: "Química", creditos: 5 },
+      { nombre: "Biología", creditos: 5 },
+      { nombre: "Bases Teoricas de Enfermeria I", creditos: 5 },
+      { nombre: "Primeros Auxilios", creditos: 3 },
+      { nombre: "Psicología Evolutiva", creditos: 5 },
+      { nombre: "Inglés I", creditos: 5 }
+    ]
+  },
+  {
+    semestre: 2,
+    year: 1,
+    ramos: [
+      { nombre: "Bioquímica", creditos: 5, requiere: ["Química"] },
+      { nombre: "Morfofuncion I", creditos: 8, requiere: ["Biología"] },
+      { nombre: "Bases Teoricas de Enfermeria II", creditos: 5, requiere: ["Bases Teoricas de Enfermeria I"] },
+      { nombre: "Comunicación y educación en salud", creditos: 3, requiere: ["Bases Teoricas de Enfermeria I"] },
+      { nombre: "Inglés II", creditos: 5, requiere: ["Inglés I"] },
+      { nombre: "CFG", creditos: 5 }
+    ]
+  },
+  {
+    semestre: 3,
+    year: 2,
+    ramos: [
+      { nombre: "Microbiología Integrada", creditos: 6, requiere: ["Bioquímica"] },
+      { nombre: "Morfofuncion II", creditos: 8, requiere: ["Morfofuncion I"] },
+      {
+        nombre: "Cuidados de Enfermeria I",
+        creditos: 9,
+        requiere: ["Morfofuncion I", "Bases Teoricas de Enfermeria II", "Comunicación y educación en salud"]
+      },
+      { nombre: "Competencias genéricas para el desarrollo profesional", creditos: 3, requiereCreditos: 55 },
+      { nombre: "Inglés III", creditos: 5, requiere: ["Inglés II"] }
+    ]
+  },
+  {
+    semestre: 4,
+    year: 2,
+    ramos: [
+      { nombre: "Farmacología", creditos: 6, requiere: ["Microbiología Integrada"] },
+      { nombre: "Fisiopatología", creditos: 6, requiere: ["Morfofuncion II"] },
+      {
+        nombre: "Cuidados de enfermería II",
+        creditos: 11,
+        requiere: ["Morfofuncion II", "Cuidados de Enfermeria I"]
+      },
+      { nombre: "Enfermería en Salud mental", creditos: 5, requiereCreditos: 70 },
+      { nombre: "Bioestadística", creditos: 3, requiereCreditos: 70 }
+    ]
+  },
+  {
+    semestre: 5,
+    year: 3,
+    ramos: [
+      {
+        nombre: "Gestión del cuidado de la persona adulta en el área hospitalaria",
+        creditos: 12,
+        requiere: ["Farmacología", "Fisiopatología", "Cuidados de enfermería II"]
+      },
+      {
+        nombre: "Enfermería en Psiquiatría",
+        creditos: 6,
+        requiere: ["Farmacología", "Fisiopatología", "Cuidados de enfermería II"]
+      },
+      {
+        nombre: "Bioética y Logística en Enfermeria",
+        creditos: 5,
+        requiere: ["Cuidados de enfermería II"]
+      },
+      {
+        nombre: "Salud Pública",
+        creditos: 3,
+        requiere: ["Cuidados de enfermería II", "Bioestadística"]
+      },
+      { nombre: "CFG", creditos: 5 }
+    ]
+  },
+  {
+    semestre: 6,
+    year: 3,
+    ramos: [
+      {
+        nombre: "Gestión del Cuidado en la Comunidad I",
+        creditos: 12,
+        requiere: [
+          "Gestión del cuidado de la persona adulta en el área hospitalaria",
+          "Salud Pública"
+        ]
+      },
+      {
+        nombre: "Enfermería del Adulto Mayor y Psicogeriatría",
+        creditos: 6,
+        requiere: [
+          "Gestión del cuidado de la persona adulta en el área hospitalaria",
+          "Enfermería en Psiquiatría"
+        ]
+      },
+      {
+        nombre: "Enfermería basada en Evidencia",
+        creditos: 3,
+        requiere: ["Bioética y Logística en Enfermeria", "Salud Pública"]
+      },
+      {
+        nombre: "Gestión y Liderazgo en Enfermeria",
+        creditos: 4,
+        requiere: ["Gestión del cuidado de la persona adulta en el área hospitalaria"]
+      },
+      { nombre: "CFG", creditos: 5 }
+    ]
+  },
+  {
+    semestre: 7,
+    year: 4,
+    ramos: [
+      {
+        nombre: "Gestión del Cuidado en la Comunidad II",
+        creditos: 12,
+        requiere: ["Gestión del Cuidado en la Comunidad I"]
+      },
+      {
+        nombre: "Calidad, seguridad y gestión de proyectos en Enfermeria",
+        creditos: 6,
+        requiere: ["Gestión y Liderazgo en Enfermeria"]
+      },
+      {
+        nombre: "Metodología de la Investigación I",
+        creditos: 5,
+        requiere: ["Enfermería basada en Evidencia"]
+      },
+      {
+        nombre: "Optativo",
+        creditos: 3,
+        requiereCreditos: 150
+      },
+      { nombre: "CFG", creditos: 5 }
+    ]
+  },
+  {
+    semestre: 8,
+    year: 4,
+    ramos: [
+      {
+        nombre: "Gestión del Cuidado Infanto-juvenil Intrahospitalario",
+        creditos: 12,
+        requiere: ["Gestión del Cuidado en la Comunidad II"]
+      },
+      {
+        nombre: "Cuidado de enfermería a personas en Unidades Críticas y de Urgencias",
+        creditos: 6,
+        requiere: ["Gestión del Cuidado en la Comunidad II"]
+      },
+      {
+        nombre: "Metodología de la Investigación II",
+        creditos: 6,
+        requiere: ["Metodología de la Investigación I"]
+      },
+      {
+        nombre: "Enfermería y medicina integrativa",
+        creditos: 3,
+        requiereCreditos: 150
+      },
+      {
+        nombre: "Optativo",
+        creditos: 3,
+        requiereCreditos: 150
+      }
+    ]
+  },
+  {
+    semestre: 9,
+    year: 5,
+    ramos: [
+      {
+        nombre: "Internado comunitario",
+        creditos: 25,
+        requiereCreditos: 243
+      },
+      {
+        nombre: "Internado en Unidades Clínicas y de urgencias",
+        creditos: 10,
+        requiereCreditos: 243
+      }
+    ]
+  },
+  {
+    semestre: 10,
+    year: 5,
+    ramos: [
+      {
+        nombre: "Internado Intrahospitalario",
+        creditos: 25,
+        requiereCreditos: 243
+      }
+    ]
+  }
 ];
-
-// --- UTILIDADES -------------------------------------------------
-const aprobados = new Set(JSON.parse(localStorage.getItem("aprobados") || "[]"));
-function totalCreditos() {
-  return ramos.reduce((acc, r) => (aprobados.has(r.nombre) ? acc + r.creditos : acc), 0);
-}
-function cumpleRequisitos(r) {
-  const byRamos = (r.requiere || []).every((req) => aprobados.has(req));
-  const byCreds = r.requiereCreditos ? totalCreditos() >= r.requiereCreditos : true;
-  return byRamos && byCreds;
-}
 
 // --- CONSTRUCCIÓN DINÁMICA DE LA GRILLA -------------------------
 document.addEventListener("DOMContentLoaded", () => {
