@@ -32,7 +32,6 @@
       <div class="ramo">Inglés II <button onclick="aprobar(this)">Aprobar</button></div>
       <div class="ramo">CFG <button onclick="aprobar(this)">Aprobar</button></div>
     </div>
-    <!-- Semestre 3 al 10 -->
     <div class="semestre year-2">
       <h2>Semestre 3</h2>
       <div class="ramo">Microbiología Integrada <button onclick="aprobar(this)">Aprobar</button></div>
@@ -91,31 +90,7 @@
       <div class="ramo">Internado Intrahospitalario <button onclick="aprobar(this)">Aprobar</button></div>
     </div>
   </div>
-
-  <script>
-    function aprobar(btn) {
-      const ramo = btn.parentElement;
-      ramo.classList.toggle('aprobado');
-      const nombre = ramo.textContent.trim();
-      let aprobados = JSON.parse(localStorage.getItem("aprobados") || "[]");
-      if (ramo.classList.contains("aprobado")) {
-        aprobados.push(nombre);
-      } else {
-        aprobados = aprobados.filter(n => n !== nombre);
-      }
-      localStorage.setItem("aprobados", JSON.stringify([...new Set(aprobados)]));
-    }
-
-    // Al cargar, marcar ramos ya aprobados
-    window.onload = () => {
-      const aprobados = JSON.parse(localStorage.getItem("aprobados") || "[]");
-      document.querySelectorAll(".ramo").forEach(div => {
-        if (aprobados.includes(div.textContent.trim())) {
-          div.classList.add("aprobado");
-        }
-      });
-    }
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
 
