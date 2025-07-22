@@ -20,7 +20,7 @@ const malla = [
       { nombre: "Bases Teoricas de Enfermeria II", creditos: 5, requiere: ["Bases Teoricas de Enfermeria I"] },
       { nombre: "Comunicación y educación en salud", creditos: 3, requiere: ["Bases Teoricas de Enfermeria I"] },
       { nombre: "Inglés II", creditos: 5, requiere: ["Inglés I"] },
-      { nombre: "CFG", creditos: 5 }
+      { nombre: "CFG I", creditos: 5 }
     ]
   },
   {
@@ -77,7 +77,7 @@ const malla = [
         creditos: 3,
         requiere: ["Cuidados de enfermería II", "Bioestadística"]
       },
-      { nombre: "CFG", creditos: 5 }
+      { nombre: "CFG II", creditos: 5 }
     ]
   },
   {
@@ -110,7 +110,7 @@ const malla = [
         creditos: 4,
         requiere: ["Gestión del cuidado de la persona adulta en el área hospitalaria"]
       },
-      { nombre: "CFG", creditos: 5 }
+      { nombre: "CFG III", creditos: 5 }
     ]
   },
   {
@@ -137,7 +137,7 @@ const malla = [
         creditos: 3,
         requiereCreditos: 150
       },
-      { nombre: "CFG", creditos: 5 }
+      { nombre: "CFG IV", creditos: 5 }
     ]
   },
   {
